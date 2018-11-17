@@ -1,0 +1,14 @@
+<div class="row center-xs">
+  <div class="col-xs-6">
+    <button mat-button>Edit</button>
+    <button mat-button>Remove</button>
+    <button mat-button routerLink="../../">Go to list</button>
+    <mat-card class="example-card" *ngIf="currentImage">
+      <mat-card-header class="picture-item">
+        <span class="absolute-pointer"><i class="far fa-hand-pointer"></i></span>
+        <mat-card-title>{{currentImage.name}}</mat-card-title>
+      </mat-card-header>
+        <img mat-card-image src="{{currentImage.url}}">
+    </mat-card>
+  </div>
+</div>

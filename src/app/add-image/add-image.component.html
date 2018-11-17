@@ -1,0 +1,26 @@
+<button mat-button (click)="openImageAddForm($event)">{{imageFormText}}</button>
+<mat-grid-list cols="1" rowHeight="250px" *ngIf="addImageRequested">
+<mat-grid-tile>
+  <div class="image-form">
+    <form class="example-form" id="fileUploadForm">
+      <div class="upload-file-input">
+        <input placeholder="Upload file" type="file" (change)="uploadFile($event.target.files)">
+      </div>
+      <mat-checkbox [checked]="pointerSelected" class="pointer-options-checkbox" (change)="openTooltipOptions()">Add pointer with tooltip</mat-checkbox>
+      <div class="tooltip-info-block" *ngIf="pointerSelected">
+        <mat-form-field class="example-full-width">
+          <mat-select class="tooltip-form-item" placeholder="Select tooltip position" [(ngModel)]="tooltipData.position" name="tooltip-position">
+            <mat-option *ngFor="let position of tooltipPositions" value="{{position}}">
+              {{position}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" class="tooltip-form-item">
+          <input matInput name="tooltip-text" placeholder="Tooltip text" value="{{tooltipData.title}}" [(ngModel)]="tooltipData.title">
+        </mat-form-field>
+      </div>
+      <button class="save-image-btn" mat-button (click)="saveImageData($event)" [disabled]="!imageDataAvailable">Save</button>
+    </form>
+  </div>
+</mat-grid-tile>
+</mat-grid-list>

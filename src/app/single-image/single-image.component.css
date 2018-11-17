@@ -1,0 +1,17 @@
+.picture-item {
+    position: relative;
+}
+/*.picture-item::after {*/
+    /*content: '\f25a';*/
+    /*font-family: "Font Awesome 5 Free";*/
+    /*position: absolute;*/
+    /*color: white;*/
+    /*top: 40px;*/
+    /*right: 0;*/
+/*}*/
+.absolute-pointer {
+    position: absolute;
+    color: white;
+    top: 120%;
+    right: 0;
+}

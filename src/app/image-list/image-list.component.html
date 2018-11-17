@@ -1,0 +1,11 @@
+<app-add-image></app-add-image>
+<div class="row">
+  <div class="col-xs-6 col-md-4 image-card-item" *ngFor="let image of imageList">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{image.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{image.url}}" (click)="navigateToEditPage($event, image)">
+    </mat-card>
+  </div>
+</div>
