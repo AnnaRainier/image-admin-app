@@ -8,6 +8,10 @@ In order for this app to work (interacting with fake server), you need to instal
 For installation process, please run `npm install -g json-server` in your terminal.
 After installation, please run `json-server db.json` in main project folder `image-admin-app`.
 
+##Installing dependencies
+
+Before you start, please run `npm i` in main project folder `image-admin-app`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
