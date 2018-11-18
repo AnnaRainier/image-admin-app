@@ -19,3 +19,9 @@
 div.image-card-item {
     height: fit-content;
 }
+mat-card > mat-card-header > .mat-card-header-text > mat-card-title.image-title {
+    font-size: 2vw;
+    line-height: 3vmax;
+    word-break: break-word;
+
+}

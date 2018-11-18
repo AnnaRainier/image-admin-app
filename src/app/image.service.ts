@@ -17,4 +17,10 @@ export class ImageService {
   getImageById(id: number) {
     return this.http.get(`${this.apiUrl}/images/${id}`);
   }
+  changeImage(image) {
+    return this.http.put(`${this.apiUrl}/images/${image.id}`, image);
+  }
+  deleteImage(image) {
+    return this.http.delete(`${this.apiUrl}/images/${image.id}`, image);
+  }
 }

@@ -19,6 +19,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 
@@ -29,7 +32,9 @@ import {MatCardModule} from '@angular/material/card';
     HeaderComponent,
     ImageListComponent,
     SingleImageComponent,
-    AddImageComponent
+    AddImageComponent,
+    DialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +49,11 @@ import {MatCardModule} from '@angular/material/card';
     MatGridListModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [ImageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent, DeleteDialogComponent]
 })
 export class AppModule { }

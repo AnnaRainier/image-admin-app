@@ -1,17 +1,122 @@
 .picture-item {
     position: relative;
 }
-/*.picture-item::after {*/
-    /*content: '\f25a';*/
-    /*font-family: "Font Awesome 5 Free";*/
-    /*position: absolute;*/
-    /*color: white;*/
-    /*top: 40px;*/
-    /*right: 0;*/
-/*}*/
 .absolute-pointer {
     position: absolute;
-    color: white;
+    color: darkred;
     top: 120%;
     right: 0;
+}
+.tooltip-element-left {
+    display: block;
+    position: absolute;
+    /*width: 125px;*/
+    width: 20%;
+    padding: 5px;
+    z-index: 100;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    left: -20%;
+    top: 50%;
+}
+.tooltip-element-left::after {
+    content: '';
+    left: 100%;
+    top: 22%;
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 8px solid black;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+.tooltip-element-right {
+    display: block;
+    position: absolute;
+    width: 20%;
+    /*width: 125px;*/
+    padding: 5px;
+    z-index: 100;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    left: 102%;
+    top: 50%;
+}
+.tooltip-element-right::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -5%;
+    top: 22%;
+    border-right: 8px solid black;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+.tooltip-element-top {
+    display: block;
+    position: absolute;
+    width: 125px;
+    /*width: 20%;*/
+    padding: 5px;
+    z-index: 100;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    left: 45%;
+    top: 0;
+}
+.tooltip-element-top::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 8px solid black;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    top: 100%;
+    left: 45%;
+}
+.tooltip-element-bottom {
+    display: block;
+    position: absolute;
+    width: 125px;
+    /*width: 20%;*/
+    padding: 5px;
+    z-index: 100;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    top: 96%;
+    left: 45%;
+}
+.tooltip-element-bottom::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-bottom: 8px solid black;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    left: 45%;
+    top: -25%;
+}
+.tooltip-parent {
+    position: relative;
+}
+span#tooltip-element {
+    font-size: 2vw;
+}
+#tooltip-element {
+    display: none;
+    /*font-size: 2vm;*/
+}
+.single-img-block {
+    padding-bottom: 30px;
 }

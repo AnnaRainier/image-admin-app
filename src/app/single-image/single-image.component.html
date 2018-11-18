@@ -1,14 +1,21 @@
+<div class="container single-img-block">
 <div class="row center-xs">
   <div class="col-xs-6">
-    <button mat-button>Edit</button>
-    <button mat-button>Remove</button>
+    <button mat-button (click)="openDialog()">Edit</button>
+    <button mat-button (click)="openDeleteDialog()">Remove</button>
     <button mat-button routerLink="../../">Go to list</button>
-    <mat-card class="example-card" *ngIf="currentImage">
+    <div class="">
+    <mat-card class="example-card tooltip-parent" *ngIf="currentImage">
       <mat-card-header class="picture-item">
-        <span class="absolute-pointer"><i class="far fa-hand-pointer"></i></span>
-        <mat-card-title>{{currentImage.name}}</mat-card-title>
+        <span class="absolute-pointer" *ngIf="currentImage.tooltip.position"
+              (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()"><i class="far fa-hand-pointer"></i></span>
+        <!--<span class="tooltip-element">{{currentImage.tooltip.title}}</span>-->
+        <mat-card-title class="image-title">{{currentImage.name}}</mat-card-title>
       </mat-card-header>
+      <span id="tooltip-element" [ngClass]="defineTooltipClass(currentImage.tooltip.position)">{{currentImage.tooltip.title}}</span>
         <img mat-card-image src="{{currentImage.url}}">
     </mat-card>
+    </div>
   </div>
+</div>
 </div>
