@@ -2,15 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
+#Installing dependencies 
+
+Before you start, please run `npm i` in main project folder `image-admin-app`.
+
 ## Starting fake REST API
 
 In order for this app to work (interacting with fake server), you need to install and start json-server.
 For installation process, please run `npm install -g json-server` in your terminal.
 After installation, please run `json-server db.json` in main project folder `image-admin-app`.
-
-##Installing dependencies
-
-Before you start, please run `npm i` in main project folder `image-admin-app`.
 
 ## Development server
 
