@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ImageService} from '../image.service';
 import {SharedService} from '../shared.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-add-image',
@@ -13,7 +14,7 @@ export class AddImageComponent implements OnInit {
   private addImageRequested: Boolean = false;
   private imageToUpload: File = null;
   private imageDataUrl: any;
-  private tooltipPositions: Array<Object> = ['top', 'right', 'left', 'bottom'];
+  private tooltipPositions: Array<Object> = environment.tooltipPositions;
   private pointerSelected: Boolean = false;
   private imageDataAvailable: Boolean = false;
   private imageFormText: String = 'Add new image';
@@ -29,6 +30,22 @@ export class AddImageComponent implements OnInit {
     $event.preventDefault();
     this.addImageRequested = !this.addImageRequested;
     this.addImageRequested ? this.imageFormText = 'Cancel' : this.imageFormText = 'Add new image';
+    if (this.imageFormText === 'Add new image') {
+        this.clearComponentData();
+    }
+  }
+  validateImageData(pointerOptions, tooltipOptions, dataAvailable) {
+    if (!dataAvailable) {
+      return false;
+    } else {
+      if (pointerOptions && tooltipOptions.position && tooltipOptions.title) {
+        return true;
+      } else if (!pointerOptions) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
     uploadFile(files: FileList) {
       this.imageToUpload = files.item(0);
@@ -55,9 +72,7 @@ export class AddImageComponent implements OnInit {
             position: this.tooltipData['position']
           }
         };
-        console.log('image data', this.globalImageData);
         this.imageService.saveImage(this.globalImageData).subscribe(response => {
-          // console.log('resp', response);
             this.imageService.getAllImages().subscribe((images: any) => {
               this.sharedService.changeImagesList(images);
               this.clearComponentData();

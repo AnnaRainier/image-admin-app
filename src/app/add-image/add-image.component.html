@@ -19,7 +19,8 @@
           <input matInput name="tooltip-text" placeholder="Tooltip text" value="{{tooltipData.title}}" [(ngModel)]="tooltipData.title">
         </mat-form-field>
       </div>
-      <button class="save-image-btn" mat-button (click)="saveImageData($event)" [disabled]="!imageDataAvailable">Save</button>
+      <button class="save-image-btn" mat-button (click)="saveImageData($event)"
+              [disabled]="!validateImageData(pointerSelected, tooltipData, imageDataAvailable) ? true : null">Save</button>
     </form>
   </div>
 </mat-grid-tile>

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ImageService} from './image.service';
-import {SharedService} from './shared.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import {SharedService} from './shared.service';
 })
 export class AppComponent implements OnInit {
   title = 'image-admin-app';
-  constructor (private imageService: ImageService, private sharedService: SharedService) {
+  constructor () {
   }
   ngOnInit() {
 

@@ -1,9 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import {ImageService} from '../image.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {DialogComponent} from '../dialog/dialog.component';
 import {DeleteDialogComponent} from '../delete-dialog/delete-dialog.component';
 
@@ -58,7 +57,6 @@ export class SingleImageComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
             if (result) {
                 if (result['modified'] || (this.initialImage['tooltip'].position !== result['tooltip'].position) ||
                     (this.initialImage['tooltip'].title !== result['tooltip'].title)) {
@@ -67,7 +65,6 @@ export class SingleImageComponent implements OnInit {
                         delete this.currentImage['modified'];
                     };
                     this.imageService.changeImage(this.currentImage).subscribe(response => {
-                        console.log('resp', response);
                         this.ngOnInit();
                     });
                 }

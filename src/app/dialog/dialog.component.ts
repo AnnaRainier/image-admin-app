@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dialog',
@@ -11,14 +12,11 @@ export class DialogComponent implements OnInit {
     constructor(
         public dialogRef: MatDialogRef<DialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: Object) {}
-    private tooltipPositions: Array<String> = ['top', 'right', 'left', 'bottom'];
+    private tooltipPositions: Array<String> = environment.tooltipPositions;
     private imageToUpload: File = null;
     private imageDataUrl: any;
-    private initialImage: Object;
     private imageDataAvailable: boolean;
   ngOnInit() {
-    this.initialImage = Object.assign({}, this.data['image']);
-    this.initialImage['tooltip'] = Object.assign({}, this.data['image'].tooltip);
   }
 
     closeDialog(): void {
@@ -37,7 +35,6 @@ export class DialogComponent implements OnInit {
 
     }
     changeImage() {
-      console.log('change image is triggered');
     if (this.imageToUpload) {
         this.data['image'].name = this.imageToUpload.name;
     };
