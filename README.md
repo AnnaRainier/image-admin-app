@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
-#Installing dependencies 
+# Installing dependencies 
 
 Before you start, please run `npm i` in main project folder `image-admin-app`.
 
